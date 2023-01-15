@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   get 'books/edit'
   root to: 'homes#top'
   devise_for :users
+  get 'books/:id' => 'homes#about',as:'books'
+  get 'homes/about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
