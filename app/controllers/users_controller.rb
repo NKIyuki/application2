@@ -5,4 +5,9 @@ class UsersController < ApplicationController
 
   def edit
   end
+
+  def index
+    @user = User.all
+  end
+
 end
