@@ -4,6 +4,7 @@
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
         <h2>User info</h2>
+        <%= image_tag @users.get_profile_image(100,100) %>
         <form enctype="multipart/form-data" action="/users/74552" accept-charset="UTF-8" method="post">
           <input type="hidden" name="_method" value="patch" autocomplete="off">
           <input type="hidden" name="authenticity_token" value="RkUuAzzp5icNI_TN0SfkWShVu0DmXoK6V0l-EUi8FMhJFY9bXPvvaB7htOaQAHjl5bU_sQk6MyM0uVr4uuQVmg" autocomplete="off">
