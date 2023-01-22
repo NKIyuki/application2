@@ -24,19 +24,13 @@
                        </a>
                     </div>
                     <h2 class="mt-3">New book</h2>
-                    <form action="/books" accept-charset="UTF-8" method="post">
-                        <div class="form-group">
-                            <label for="book_title">Title</label>
-                            <input class="form-control book_title" type="text" name="book[title]" id="book_title">
-                        </div>
-                        <div class="form-group">
-                            <label for="book_opinion">Opinion</label>
-                            <textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
-                        </div>
-                    </form>
+                            <%= form_with model: book.new do |f| %>
+                    <div class="form-group">
+                      <h6>Title</h6>
+                      <i class = "form-control book_title"></i>
+                      <h6>Opinion</h6>
+                      <i class ="form-control book_body"></i>
+                    </div>
                 </div>
                 <div class="col-md-8 offset-md-1">
                     <h2>Users</h2>
@@ -49,7 +43,7 @@
                             </tr>
                         </thead>
                     <tbody>
-                      
+
                     </tbody>
                 </table>
             </div>
