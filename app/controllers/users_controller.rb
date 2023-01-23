@@ -23,6 +23,12 @@ class UsersController < ApplicationController
     redirect_to post_images_path
   end
 
+  def update
+    @user = @User.faind(params[:id])
+    user.update(user_params)
+    redirect_to user_path(user.id)
+  end
+
   private
 
   def post_image_params
