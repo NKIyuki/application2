@@ -33,9 +33,10 @@
                       </div>
                       <div class="form-group">
                       <%= f.submit 'Create Book',class:"btn btn-success" %>
-                    </div>
+                    </div>s
                     <% end %>
-
+                 </div>
+                      <div class="col-md-8 offset-md-1">
                     <h2>Book detail</h2>
                     <tbody>
 
@@ -44,10 +45,10 @@
                         <td><%= @books.user.name%></td>
                          <td><%= @books.title %></td>
                          <td><%= @books.body %></td>
+                         <td><%= link_to"Destroy",book_path(@books.id),method: :delete,"data-confirm" => "本当に削除しますか？" %></td>
                        </tr>
                     </tbody>
-
+                     </div>
                 </div>
               </div>
-           </div>
 </main>

@@ -37,6 +37,7 @@
                       <%= f.submit 'Create Book',class:"btn btn-success" %>
                     </div>
                     <% end %>
+            </div>
                 <div class="col-md-8 offset-md-1">
                     <h2>Books</h2>
                     <table class="table table-hover table-inverse">
@@ -48,9 +49,16 @@
                             </tr>
                         </thead>
                     <tbody>
+                        <tr>
+                            <% @books.each do |book| %>
+                         <tb><%= image_tag @user.get_profile_image(100,100) %></tb>
+                         <td><%= book.title %></td>
+                         <td><%= book.body %></td>
+
+                         </tr>
+                         <% end %>
 
                       </tbody>
                 </table>
             </div>
-        </div>
     </div>
