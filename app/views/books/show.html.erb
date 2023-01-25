@@ -1,3 +1,7 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <main>
       <p id="notice"></p>
       <div class="container px-5 px-sm-0">
@@ -45,6 +49,7 @@
                         <td><%= @books.user.name%></td>
                          <td><%= @books.title %></td>
                          <td><%= @books.body %></td>
+                         <tb><%= link_to "Edit",edit_book_path %></tb>
                          <td><%= link_to"Destroy",book_path(@books.id),method: :delete,"data-confirm" => "本当に削除しますか？" %></td>
                        </tr>
                     </tbody>
