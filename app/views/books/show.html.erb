@@ -12,7 +12,7 @@
 </ul>
 <% end %>
 
-<main>
+
       <p id="notice"></p>
       <div class="container px-5 px-sm-0">
           <div class="row">
@@ -47,23 +47,33 @@
                       </div>
                       <div class="form-group">
                       <%= f.submit 'Create Book',class:"btn btn-success" %>
-                    </div>s
+                    </div>
                     <% end %>
                  </div>
                       <div class="col-md-8 offset-md-1">
                     <h2>Book detail</h2>
-                    <tbody>
-
+                    <table class="table table-hover table-inverse">
                       <tr>
-                       <td><%= image_tag @books.user.get_profile_image(100,100)  %></td>
-                        <td><%= @books.user.name%></td>
+                       <td>
+                        <%= link_to user_path(@books.user) do %>
+                        <%= image_tag @books.user.get_profile_image(100,100) %>
+                          <br>
+                        <%= @books.user.name%>
+                        <% end %>
+                       </td>
+                       <td></td>
                          <td><%= @books.title %></td>
+                         <td></td>
                          <td><%= @books.body %></td>
-                         <tb><%= link_to "Edit",edit_book_path %></tb>
-                         <td><%= link_to"Destroy",book_path(@books.id),method: :delete,"data-confirm" => "本当に削除しますか？" %></td>
+                         <td><%= link_to "Edit",edit_book_path,class:"btn btn-sm btn-success edit_book#{@user.id}" %></td>
+                         <td>
+                          <% if@books.user == current_user %>
+                          <%= link_to"Destroy",book_path(@books.id),method: :delete,"data-confirm" => "本当に削除しますか？",class:"btn btn-sm btn-danger destroy_book#{@user.id}" %>
+                          <% end %>
+                          </td>
+
                        </tr>
-                    </tbody>
-                     </div>
-                </div>
+                   </table>
+                 </div>
               </div>
-</main>
+           </div>
