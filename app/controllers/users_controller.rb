@@ -15,14 +15,17 @@ class UsersController < ApplicationController
   end
 
   def new
-    @post_images = Post_images.new
+    @user = User.new
   end
 
   def create
-    @post_image = PostImage.new(post_image_params)
-    @post_image.user_id = current_user.id
-    @post_image.save
-    redirect_to post_images_path
+    @user = User.new(user_params)
+    @user = current_user
+    if @user.save
+    redirect_to user_path
+    else
+      render :new
+    end
   end
 
   def update
