@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
    before_action :authenticate_user!,except:[:top]
   before_action :correct_user, only: [:edit]
-  def show
+
+ def show
     @user = User.find(params[:id])
-  end
+    @users = User.all
+    @users = User.new
+ end
+
 
   def edit
     @user = User.find(params[:id])
@@ -45,8 +49,9 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    @book = @book.user
+
     redirect_to(user_path) unless @user == current_user
   end
 
 end
+
