@@ -32,7 +32,7 @@
                       </tbody>
                    </table>
                    <div class="row">
-                       <%= link_to edit_user_path(current_user),class:"btn-block edit_user_#{@user.id} btn btn-outline-secondary" do %>
+                       <%= link_to edit_user_path(@books.user),class:"btn-block edit_user_#{@user.id} btn btn-outline-secondary" do %>
                 <i class="fas fa-user-cog"></i>
                 <% end %>
                     </div>
@@ -66,7 +66,10 @@
                          <td><%= @books.title %></td>
                          <td></td>
                          <td><%= @books.body %></td>
-                         <td><%= link_to "Edit",edit_book_path,class:"btn btn-sm btn-success edit_book#{@user.id}" %></td>
+                         <td>
+                           <% if@books.user == current_user %>
+                           <%= link_to "Edit",edit_book_path,class:"btn btn-sm btn-success edit_book#{@user.id}" %></td>
+                           <% end %>
                          <td>
                           <% if@books.user == current_user %>
                           <%= link_to"Destroy",book_path(@books.id),method: :delete,"data-confirm" => "本当に削除しますか？",class:"btn btn-sm btn-danger destroy_book#{@user.id}" %>
