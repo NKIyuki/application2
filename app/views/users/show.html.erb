@@ -23,7 +23,7 @@
           </table>
           <div class="row">
 
-                <%= link_to edit_user_path(current_user),class:"btn-block edit_user_#{@user.id} btn btn-outline-secondary" do %>
+                <%= link_to edit_user_path(@user),class:"btn-block edit_user_#{@user.id} btn btn-outline-secondary" do %>
                 <i class="fas fa-user-cog"></i>
                 <% end %>
 
